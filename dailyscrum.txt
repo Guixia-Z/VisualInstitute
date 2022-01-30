@@ -1,0 +1,101 @@
+DAILY SCRUM
+
+1.	What have you done/not done?
+2.	What are you planning on doing from this scrum to the next?
+3.	Where do I need assistance? What do I need to figure out?
+
+====09/12/2021====
+
+Phil
+1. Heroku PostgreSQL connection, git, proposal doc
+2. Test PostgreSQL
+3. Might need to look up things on PostgreSQL if i run into issues.
+
+Guixia
+1. database structure, trello
+2. install PostgreSQL and connect them
+3. No
+
+====10/12/2021====
+
+Phil
+1. Trello backlog
+2. Login feature, admin crud
+3. Many to many relationship for spring boot
+
+Guixia
+1. entities
+2. student part
+3. tables relationship
+
+====12/12/2021====
+
+Phil
+1. admin web security set-up, User role set up, student_courses fixes
+2. admin crud
+3. none
+
+Guixia
+1. many to many relationship, insert some data
+2. security
+3. tables relationship, how to join table to do CRUD
+
+====13/12/2021====
+
+Phil
+1. admin crud
+2. course crud
+3. none
+
+Guixia
+1. user list crud
+2. course crud
+3. none
+
+====14/12/2021====
+
+Phil
+1. admin course add/update/delete, course form fragment
+2. Peer-testing, profile page navigation
+3. none
+
+Guixia
+1. add validation on user functions
+2. student part
+3. none
+
+====15/12/2021====
+
+Phil
+1. Students taking courses admin crud not done
+2. fixing fragments forms error messages, students taking courses admin crud
+3. sending error messages in fragments with Form entities.
+
+Guixia
+1. modify profile(doing)
+2. nav bar
+3. different role
+
+====16/12/2021====
+
+Phil
+1. Fragment completed. being used in 4 different user forms.
+2. Blob image upload and user can change their image.
+3. https://www.bezkoder.com/spring-boot-upload-file-database/
+
+Guixia
+1. student choose courses
+2. student's view in the profile
+3. none
+
+====17/12/2021====
+
+Phil
+1. file upload set up
+2. user can upload profile picture, and admin can change profile as well
+3. n/a
+
+Guixia
+1. all roles profile
+2. teacher part
+3. springboot email

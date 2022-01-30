@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="">
+<head>
+    <meta charset="UTF-8">
+    <title>CourseList</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body style="background-color:#F8D9E8;" class="d-flex flex-column">
+<nav  sec:authorize="isAnonymous()" th:replace="fragments/header_anonymous :: header"></nav>
+<nav  sec:authorize="isAuthenticated()" th:replace="fragments/header_auth :: header"></nav>
+<div class="container">
+    <div class="reverse-flex-resp mt-5 d-flex justify-content-between align-items-center">
+        <div>
+            <h6 style="color:#7972CF;">Courses</h6>
+            <h1>Choose a program that's right for you</h1>
+            <div id="course-blob"></div>
+        </div>
+        <div><img class="reverseX" src="images/person3.svg" alt="person"/></div>
+    </div>
+
+    <ul>
+        <li class="text-success" th:if="${success}" th:text="${success}" />
+        <li class="text-danger" th:if="${err}" th:text="${err}" />
+    </ul>
+        <div th:if="${course.startDate.after(#dates.createNow())}" th:each="course,iter:${courseList}">
+            <div th:class="${iter.index + 1} % 2 == 0 ? ${'course-container reverse-flex text-end'}
+            : ${'course-container'}">
+                <div>
+                    <h2 th:text="${course.courseName}"></h2>
+                    <div th:text="${
+                    (course.user == null ? 'Not assigned a teacher' : course.user.firstName + ' ' + course.user.lastName)
+                    + ' — ' + course.courseRoom + ' — ' + course.startDate}"></div>
+                    <h6 th:text="${'Spots left: ' + numList.get(iter.index)}"></h6>
+                    <p th:text="${course.description}"></p>
+                    <form sec:authorize="hasRole('STUDENT')" th:action="${'/courseList?courseId=' + course.getId()}" method="post">
+                        <button class="btn btn-info rounded-pill px-4" type="submit">Take this course</button>
+                        <!--a sec:authorize="hasRole('STUDENT')" th:href="@{/(courseId=${course.id})}"  class="btn btn-info">Take this course</a-->
+                    </form>
+
+                    <a sec:authorize="isAnonymous()" th:href="@{/login}"  class="btn btn-primary rounded-pill px-4">Take this course</a>
+                </div>
+                <div>
+                    <img class="course-image" src="images/Humaaans - 2 Characters.svg" alt="2 people"/>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

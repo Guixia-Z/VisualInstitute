@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Course Info</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column">
+<nav  sec:authorize="isAuthenticated()" th:replace="fragments/header_auth :: header"></nav>
+<div class="container">
+  <h2>Update Course</h2>
+  <hr/>
+  <h3 th:if="${course == null}">Course not found</h3>
+<!--  <li th:each="err : ${#fields.errors('course.*')}" th:text="${err}" />-->
+
+    <div th:if="${course != null}" id="form" th:replace="fragments/course_form :: container(${course},
+    ${#fields.errors('course.courseName')}, ${#fields.errors('course.description')}, ${#fields.errors('course.startDate')}, ${#fields.errors('course.courseRoom')}, ${#fields.errors('course.capacity')},
+    '/admin/course/' + ${course.getId()}, ~{:: .fields})">
+        <div class="fields">Form Content ...</div>
+    </div>
+  <a th:href="@{/admin/course-list}" class="btn btn-primary">Back to list</a>
+</div>
+</body>
+</html>

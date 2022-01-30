@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<div th:fragment="container(formObject,
+                    courseNameErr, descriptionErr, startDateErr, courseRoomErr, capacityErr,
+                    action, components)">
+    <form th:object="${formObject}" th:action="${action}" method="post">
+        <div class="text-danger" th:if="${courseNameErr.size() > 0}" th:each="err : ${courseNameErr}" th:text="${err}">
+            CourseName Error
+        </div>
+        <div class="input-group my-3">
+            <label class="input-group-text">Course Name</label>
+            <input class="form-control" type="text" name="courseName" th:value="${formObject.getCourseName()}"><br/>
+        </div>
+
+        <div class="text-danger" th:if="${descriptionErr.size() > 0}" th:each="err : ${descriptionErr}"
+             th:text="${err}">Description Error
+        </div>
+        <div class="input-group my-3">
+            <label class="input-group-text">Description</label>
+            <input class="form-control" type="text" name="description" th:value="${formObject.getDescription()}">
+        </div>
+
+        <div class="text-danger" th:if="${startDateErr.size() > 0}" th:each="err : ${startDateErr}" th:text="${err}">startDate
+            Error
+        </div>
+        <div class="input-group my-3">
+            <label class="input-group-text">Start Date</label>
+            <input class="form-control" type="date" name="startDate"
+                   th:value="${#dates.format(formObject.getStartDate(), 'yyyy-MM-dd')}">
+        </div>
+
+        <div class="text-danger" th:if="${courseRoomErr.size() > 0}" th:each="err : ${courseRoomErr}" th:text="${err}">
+            courseRoom Error
+        </div>
+        <div class="input-group my-3">
+            <label class="input-group-text">Course Room</label>
+            <input class="form-control" type="text" name="courseRoom" th:value="${formObject.getCourseRoom()}">
+        </div>
+
+        <div class="text-danger" th:if="${capacityErr.size() > 0}" th:each="err : ${capacityErr}" th:text="${err}">
+            capacity Error
+        </div>
+        <div class="input-group my-3">
+            <label class="input-group-text">Capacity</label>
+            <input class="form-control" type="number" name="capacity" th:value="${formObject.getCapacity()}">
+        </div>
+
+        <input class="btn btn-primary mb-4" type="submit"/>
+    </form>
+</div>
+</body>
+</html>

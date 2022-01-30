@@ -1,0 +1,167 @@
+.profile-img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover !important;
+}
+
+.border-fit {
+    inline-size: fit-content;
+}
+
+.course-container {
+    margin-top:15em;
+    margin-bottom:15em;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.course-image {
+    width:100%;
+}
+
+.bg-pink {
+    background-color: #F8D9E8;
+}
+
+#hero {
+    height: 600px;
+    position: relative;
+}
+
+#wave {
+    position: absolute;
+    bottom: -5px;
+}
+
+.reverseX {
+    transform: scaleX(-1);
+}
+
+#wave2 {
+    width: 100%;
+    background-image: url(images/wave.svg);
+    height: 276px;
+    transform: rotate(
+            -180deg);
+    position: relative;
+    top: -1em;
+    background-size: cover;
+}
+
+#blob {
+    background-image: url(images/blob.svg);
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}
+#course-blob {
+    background-image: url(/images/blob.svg);
+    background-size: cover;
+    height: 441px;
+    width: 421px;
+    position: absolute;
+    top: 146px;
+    z-index: -2;
+}
+
+.max-700 {
+    max-width: 700px !important;
+}
+
+#person1 {
+    background-image: url(sitting-5@2x.png);
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+#person2 {
+    position: relative;
+    top: -305px;;
+}
+
+.hero-header {
+    margin-top: 0em;
+    font-size: 4em;
+}
+
+footer {
+    background-color: #7972CF;
+    width: 100%;
+}
+
+p {
+    line-height: 2em;
+    letter-spacing: 1px;
+}
+
+
+@media (min-width: 1024px) {
+
+    .course-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .reverse-flex {
+        flex-direction: row-reverse;
+    }
+    .course-image {
+        width:600px;
+    }
+    .hero-header {
+        margin-top: 1.5em;
+    }
+
+    #hero {
+        height: 700px;
+    }
+
+    #blob {
+        width: 379px;
+        height: 398px;
+        right: 40px;
+        bottom: -20px;
+    }
+
+    #person1 {
+        height: 347px;
+        width: 261px;
+        right: 191px;
+        bottom: 8px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .course-image {
+        width:800px;
+    }
+    .hero-header {
+        margin-top: 2em;
+    }
+
+    #hero {
+        height: 800px;
+    }
+
+    #blob {
+        width: 576px;
+        height: 565px;
+        right: unset;
+        left: 787px;
+        bottom: 253px;
+        position: relative;
+    }
+
+    #person1 {
+        height: 543px;
+        width: 406px;
+        left: 722px;
+        right: unset;
+        bottom: 826px;
+        position: relative;
+    }
+}
+
+@media (min-width: 2000px) {
+}
